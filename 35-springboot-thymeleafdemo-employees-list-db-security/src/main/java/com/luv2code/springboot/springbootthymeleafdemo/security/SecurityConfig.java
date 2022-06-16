@@ -15,8 +15,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		// TODO Auto-generated method stub
-		//super.configure(auth);
 		
 		// create the in-memory users, passwords and roles
 		// Use password in plain-text
@@ -35,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeHttpRequests()
 		.antMatchers("/employees/list").hasAnyRole("EMPLOYEE","ADMIN","MANAGER")
 		.antMatchers("/employees/showFormAdd").hasAnyRole("ADMIN","MANAGER")
-		.antMatchers("/employees/showFormUpdate").hasAnyRole("ADMIN")
+		.antMatchers("/employees/showFormUpdate").hasAnyRole("ADMIN","MANAGER")
 		.antMatchers("/employees/delete").hasRole("ADMIN")
 		.and()
 		.formLogin()

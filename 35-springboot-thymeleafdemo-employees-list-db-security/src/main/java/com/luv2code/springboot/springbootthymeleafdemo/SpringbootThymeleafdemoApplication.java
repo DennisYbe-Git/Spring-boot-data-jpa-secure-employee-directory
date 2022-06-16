@@ -15,8 +15,9 @@ public class SpringbootThymeleafdemoApplication {
 		SpringApplication.run(SpringbootThymeleafdemoApplication.class, args);
 	}
 	
-	// Localize the Hibernate validation message also.
-	// expose the Localization resource bundle messages in view pages (Thymeleaf templates)
+	// Localize the thymeleaf html templates
+	// expose the Localization resource bundle messages in view html pages (Thymeleaf templates)
+	// use attribute th:text="#{label.title}" in html  tags to access the keys in message.properties bundle
 	@Bean("messageSource")
 	public MessageSource getMessageSource() {
 		

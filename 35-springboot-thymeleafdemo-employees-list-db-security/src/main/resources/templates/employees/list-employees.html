@@ -33,15 +33,16 @@
 	<div class="container">
 	<h3>[(#{label.title})]</h3>
 	<div sec:authorize="hasRole('ROLE_ADMIN')">
-  	The value of the "name" property of the authentication object should appear here.
+  	ADMIN ROLE only see this...
 	</div>
 	<hr>
 	
 	<!-- Example of use of onClick to go to a URL -->
-	<div id="add">
+	<div sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')" id="add">
 		<!--  Use BootStrap CSS btn style on button -->
-		<button class="btn btn-primary mb-3" onClick="window.location.href='showFormAdd'"><span th:text="#{label.add.employee}"/></button>			
+		<button th:title="#{label.add.employee}" class="btn btn-primary mb-3" onClick="window.location.href='showFormAdd'">[(#{label.add.employee})]</button>			
 	</div>
+	
 	<div id="search">
 	</div>
 
@@ -51,7 +52,9 @@
 				<th th:text="#{label.first}"></th>
 				<th th:text="#{label.last}"></th>
 				<th th:text="#{label.email}"></th>
-				<th th:text="#{label.action}"></th>
+	
+				<th sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')">[(#{label.action})]</th>
+				
 			</tr>
 		</thead>
 		<tbody>
@@ -61,10 +64,15 @@
 				<td th:text="${tempEmployee.email}"/>
 				
 				<!--  Use BootStrap CSS btn style on <a href> -->
-				<td><a class="btn btn-info btn-sm" th:href="@{showFormUpdate(id=${tempEmployee.id},test=field)}">[(#{label.update})]</a>
+				<td>
+				<span sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')">
+					<a class="btn btn-info btn-sm" th:href="@{showFormUpdate(id=${tempEmployee.id},test=field)}">[(#{label.update})]</a>
+				</span>
 				<!--  <a class="btn btn-danger btn-sm" th:href="@{delete(id=${tempEmployee.id})}">[[#{label.delete}]]</a>
 				-->
-				<a class="btn btn-danger btn-sm" th:onclick="confirmDelete(event, '[[${tempEmployee.firstName}]]')">[[#{label.delete}]]</a>
+				<span sec:authorize="hasRole('ROLE_ADMIN')">
+					<a class="btn btn-danger btn-sm" th:onclick="confirmDelete(event, '[[${tempEmployee.firstName}]]')">[[#{label.delete}]]</a>
+				</span>
 				</td>
 				
 			</tr>
