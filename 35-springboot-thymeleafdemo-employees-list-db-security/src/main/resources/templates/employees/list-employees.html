@@ -71,7 +71,7 @@
 				<!--  <a class="btn btn-danger btn-sm" th:href="@{delete(id=${tempEmployee.id})}">[[#{label.delete}]]</a>
 				-->
 				<span sec:authorize="hasRole('ROLE_ADMIN')">
-					<a class="btn btn-danger btn-sm" th:onclick="confirmDelete(event, '[[${tempEmployee.firstName}]]')">[[#{label.delete}]]</a>
+					<a class="btn btn-danger btn-sm" th:href="@{delete(id=${tempEmployee.id})}" th:onclick="confirmDelete(event, '[[${tempEmployee.firstName}]]')">[[#{label.delete}]]</a>
 				</span>
 				</td>
 				
@@ -79,8 +79,8 @@
 		</tbody>
 	</table>
 	
-	<form action="#" th:action="@{/logout}" method="POST" onSubmit="if (!confirm('Do you want to logout?')) return false">
-		<input class="btn btn-primary btn-sm" type="submit" value="Logout" >
+	<form action="#" th:action="@{/logout}" method="POST" th:onSubmit="if (!confirm('[(#{label.confirm.logout})]')) return false">
+		<input class="btn btn-primary btn-sm" type="submit" th:value="#{label.logout}" >
 	</form>
 	</div>
 </body>

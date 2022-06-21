@@ -14,13 +14,13 @@
 	<form action="#" th:action="@{/employees/save}" th:object="${employee}" method="POST">
 		
 		<p><label for="first" th:text="#{label.first}"></label>:
-		<input id="first "class="form-control mb-4 col-4" type="text" th:field="*{firstName}"/><span th:each="err:${#fields.errors('firstName')}" th:text="${err}"></span></p>
+		<input id="first "class="form-control mb-4 col-4" type="text" th:field="*{firstName}"/><span class="text-danger" th:each="err:${#fields.errors('firstName')}" th:text="${err}"></span></p>
 		
 		<p><label for="last" th:text="#{label.last}"/></label>:
-		<input id="last" class="form-control mb-4 col-4" type="text" th:field="*{lastName}"/><span th:each="err:${#fields.errors('lastName')}" th:text="${err}"></span></p>
+		<input id="last" class="form-control mb-4 col-4" type="text" th:field="*{lastName}"/><span class="text-danger" th:each="err:${#fields.errors('lastName')}" th:text="${err}"></span></p>
 		
 		<p><label for="email" th:text="#{label.email}"/></label>:
-		<input id="email" class="form-control mb-4 col-4" type="text" th:field="*{email}"/><span th:each="err:${#fields.errors('email')}" th:text="${err}"></span></p>
+		<input id="email" class="form-control mb-4 col-4" type="text" th:field="*{email}"/><span class="text-danger" th:each="err:${#fields.errors('email')}" th:text="${err}"></span></p>
 	
 		<!--  Hidden id field to tell Spring Data JPA to use update for the save -->
 		<input type="hidden" th:field="*{id}"/>

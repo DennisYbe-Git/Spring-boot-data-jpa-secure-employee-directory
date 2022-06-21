@@ -18,15 +18,15 @@ public class Employee {
 	private int id;
 	
 	@Column(name="first_name")
-	@NotEmpty(message="{label.enter.first}")
+	@NotEmpty(message="{label.error.first}")
 	private String firstName;
 	
 	@Column(name="last_name")
-	@NotEmpty(message="{label.enter.last}")
+	@NotEmpty(message="{label.error.last}")
 	private String lastName;
 	
 	@Column(name="email")
-	@NotEmpty(message="{label.enter.email}")
+	@NotEmpty(message="{label.error.email}")
 	private String email;
 	
 	public Employee() {

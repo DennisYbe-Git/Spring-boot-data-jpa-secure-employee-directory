@@ -10,9 +10,9 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 	
 	// Database methods with datasource connection for CRUD automatically implemented
 	// findAll()
-	// findById()
-	// save()
-	// deleteById()
+	// findById(int)
+	// save(Employee)
+	// deleteById(int)
 	
 	public List<Employee> findAllByOrderByLastNameAsc();
 

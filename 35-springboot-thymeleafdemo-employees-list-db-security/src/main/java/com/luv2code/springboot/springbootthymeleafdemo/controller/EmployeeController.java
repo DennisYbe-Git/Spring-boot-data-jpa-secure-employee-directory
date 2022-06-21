@@ -56,8 +56,9 @@ public class EmployeeController {
 	@InitBinder
 	public void preProcess(WebDataBinder dataBinder) {
 		StringTrimmerEditor trimmer = new StringTrimmerEditor(true);
-		dataBinder.registerCustomEditor(String.class, trimmer); // can also take a property name "lastName" to trim
-//		dataBinder.registerCustomEditor(String.class, "lastName" trimmer);
+		dataBinder.registerCustomEditor(String.class, trimmer); // trim any request parameter, can also take a property name "lastName" to trim
+//		dataBinder.registerCustomEditor(String.class, "lastName", trimmer);
+//		dataBinder.registerCustomEditor(String.class, "firstName", trimmer);
 	}	
 	
 	@PostMapping("/save")

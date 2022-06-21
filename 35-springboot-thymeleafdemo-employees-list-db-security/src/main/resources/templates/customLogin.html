@@ -9,7 +9,16 @@
 <body>
 
 <div class="container">
-	<h3>[(#{label.login})]</h3>
+	
+	<h3 class="text-primary">[(#{label.login})]</h3>
+	<div class="row">
+		<div class="col-xs-4" th:if="${param.error != null}">
+			<p class="text-danger">The username and/or password is invalid.</p>
+		</div>
+		<div class="col-xs-4" th:if="${param.logout != null}">
+			<p class="text-success">You are successfully logged out.</p>
+		</div>
+	</div>
 	<hr>
 	
 	<form action="#" th:action="@{/authenticateTheUser}" method="POST">

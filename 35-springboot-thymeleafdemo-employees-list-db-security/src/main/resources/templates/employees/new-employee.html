@@ -15,15 +15,15 @@
 		
 		<p><label for="first" th:text="#{label.first}" ></label>:
 		<input id="first" class="form-control mb-4 col-4" type="text" th:field="*{firstName}" th:placeholder="#{label.first}">
-		<span th:each="err:${#fields.errors('firstName')}" th:text="${err}"></span>
+		<span class="text-danger" th:each="err:${#fields.errors('firstName')}" th:text="${err}"></span>
 		
 		<p><label for="last" th:text="#{label.last}" ></label>:
 		<input id="last" class="form-control mb-4 col-4" type="text" th:field="*{lastName}" th:placeholder="#{label.last}">
-		<span th:each="err:${#fields.errors('lastName')}" th:text="${err}"></span></p>
+		<span class="text-danger" th:each="err:${#fields.errors('lastName')}" th:text="${err}"></span></p>
 		
 		<p><label for="email" th:text="#{label.email}" ></label>:
 		<input id="email" class="form-control mb-4 col-4" type="text" th:field="*{email}" th:placeholder="#{label.email}">
-		<span th:each="err:${#fields.errors('email')}" th:text="${err}"></span></p>
+		<span class="text-danger" th:each="err:${#fields.errors('email')}" th:text="${err}"></span></p>
 		
 		<p><input class="btn btn-primary" type="submit" th:value="#{label.save}"/>&nbsp;<input class="btn btn-secondary" type="reset" th:value="#{label.reset}"/></p>
 	</form>

@@ -1,8 +1,11 @@
 package com.luv2code.springboot.springbootthymeleafdemo;
 
+import javax.sql.DataSource;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ResourceBundleMessageSource;
@@ -27,5 +30,21 @@ public class SpringbootThymeleafdemoApplication {
 		return messageSource;
 		
 	}
+	
+	// this will use the bean name in the applications.properties for jdbc connection
+	//
+//	@Bean("securityDS")
+//	@ConfigurationProperties("security.datasource")
+//	public DataSource dataSource2() {
+//		
+//		return DataSourceBuilder.create().build();
+//	}
+	
+//	@Bean
+//	@ConfigurationProperties("app.datasource")
+//	public DataSource dataSource() {
+//		
+//		return DataSourceBuilder.create().build();
+//	}
 
 }
