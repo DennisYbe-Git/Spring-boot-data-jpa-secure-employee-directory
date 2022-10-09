@@ -15,7 +15,7 @@ public class DemoController {
 	
 	// Get Mapping for hello world endpoint
 	//
-	@GetMapping("/hello")
+	@GetMapping("/hello_MASTER")
 	public String sayHello(Model model) {
 		
 		model.addAttribute("theDate", new Date());
