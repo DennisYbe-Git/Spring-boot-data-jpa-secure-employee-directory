@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 //@RequestMapping("/demo")
 public class DemoController {
 	
-	// Get Mapping for hello world endpoint
+	// Get Mapping for hello world endpoint to /hello_Local
 	//
 	@GetMapping("/hello_Local")
 	public String sayHello(Model model) {
