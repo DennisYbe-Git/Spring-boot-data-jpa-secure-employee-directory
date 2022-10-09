@@ -33,6 +33,8 @@ public class EmployeeController {
 	public String listEmployees(Model theModel) {
 		List<Employee> employees = employeeService.findAll();
 		theModel.addAttribute("employees", employees);
+		
+		// Add a comment line
 		return "/employees/list-employees";
 	}
 	

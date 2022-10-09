@@ -21,6 +21,7 @@ public class DemoController {
 		model.addAttribute("theDate", new Date());
 		// Spring data thymeleaf auto configures view resolver to 
 		// get helloworld.html template file from src/main/resources/templates
+		// Add another line.
 		return "helloworld";
 	}
 
